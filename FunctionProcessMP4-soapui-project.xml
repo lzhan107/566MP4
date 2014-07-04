@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="FunctionProcessMP4" resourceRoot="${projectDir}" soapui-version="4.5.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="FunctionProcessServiceBinding" type="wsdl" bindingName="{http://FunctionProcessService.wsdl}FunctionProcessServiceBinding" soapVersion="1_1" anonymous="optional" definition="file:/C:/apache/apache-tomcat-7.0.39/webapps/ode/WEB-INF/processes/FunctionProcess/FunctionProcessService.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\apache\apache-tomcat-7.0.39\webapps\ode\WEB-INF\processes\FunctionProcess\FunctionProcessService.wsdl"><con:part><con:url>file:\C:\apache\apache-tomcat-7.0.39\webapps\ode\WEB-INF\processes\FunctionProcess\FunctionProcessService.wsdl</con:url><con:content><![CDATA[<definitions name="FunctionProcessService" targetNamespace="http://FunctionProcessService.wsdl" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://FunctionProcessService.wsdl" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:msgs="http://www.example.org/messages">
+  <wsdl:types>
+    <xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://www.example.org/messages" xmlns:ns="http://ws.apache.org/axis2">
+      <xsd:element name="functionProcessServiceRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="param0" type="xsd:int"/>
+            <xsd:element minOccurs="0" name="param1" type="xsd:int"/>
+            <!--<xsd:element minOccurs="0" name="param2" type="xsd:int"/>-->
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="functionProcessServiceResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="return" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <message name="FunctionProcessServiceOperationRequest">
+    <part name="functionProcessServiceRequest" element="msgs:functionProcessServiceRequest"/>
+  </message>
+  <message name="FunctionProcessServiceOperationResponse">
+    <part name="functionProcessServiceResponse" element="msgs:functionProcessServiceResponse"/>
+  </message>
+  <portType name="FunctionProcessServicePortType">
+    <operation name="FunctionProcessServiceOperation">
+      <input name="input1" message="tns:FunctionProcessServiceOperationRequest"/>
+      <output name="output1" message="tns:FunctionProcessServiceOperationResponse"/>
+    </operation>
+  </portType>
+  <binding name="FunctionProcessServiceBinding" type="tns:FunctionProcessServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="FunctionProcessServiceOperation">
+      <soap:operation/>
+      <input name="input1">
+        <soap:body use="literal"/>
+      </input>
+      <output name="output1">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="FunctionProcessServiceService">
+    <port name="FunctionProcessServicePort" binding="tns:FunctionProcessServiceBinding">
+      <soap:address location="http://localhost:8080/ode/processes/FunctionProcessServicePort"/>
+    </port>
+  </service>
+  <plnk:partnerLinkType name="FunctionProcessService">
+    <plnk:role name="FunctionProcessServicePortTypeRole" portType="tns:FunctionProcessServicePortType"/>
+  </plnk:partnerLinkType>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ode/processes/FunctionProcessServicePort</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="FunctionProcessServiceOperation" bindingOperationName="FunctionProcessServiceOperation" type="Request-Response" outputName="output1" inputName="input1" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Sunny Test"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ode/processes/FunctionProcessServicePort</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mes="http://www.example.org/messages">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mes:functionProcessServiceRequest>
+         <!--Optional:-->
+         <mes:param0>?</mes:param0>
+         <!--Optional:-->
+         <mes:param1>?</mes:param1>
+      </mes:functionProcessServiceRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://FunctionProcessService.wsdl/FunctionProcessServicePortType/input1"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Rainny Test"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ode/processes/FunctionProcessServicePort</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mes="http://www.example.org/messages">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mes:functionProcessServiceRequest>
+         <!--Optional:-->
+         <mes:param0>2</mes:param0>
+         <!--Optional:-->
+         <mes:param1>-1</mes:param1>
+      </mes:functionProcessServiceRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://FunctionProcessService.wsdl/FunctionProcessServicePortType/input1"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>
